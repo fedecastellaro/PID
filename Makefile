@@ -12,4 +12,5 @@ test: $(OBJ)
 
 # This way, when statement #1 fails (throws error), run statement #2, which is simply true.
 clean:
-	rm -rf $(OBJ) || true 
+	rm -rf $(OBJ) || true
+	rm test
