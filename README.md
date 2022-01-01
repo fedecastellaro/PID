@@ -15,15 +15,15 @@ Implementation of a PID algorithm in C in PID.c and PID.h files.
 Modified Anti-wind-up via integrator clamping part. The following code was commented:
 
 ```c
-    // if (pid->integrator > pid->limMaxInt) {
+     if (pid->integrator > pid->limMaxInt) {
 
-    //     pid->integrator = pid->limMaxInt;
+         pid->integrator = pid->limMaxInt;
 
-    // } else if (pid->integrator < pid->limMinInt) {
+     } else if (pid->integrator < pid->limMinInt) {
 
-    //     pid->integrator = pid->limMinInt;
+         pid->integrator = pid->limMinInt;
 
-    // }
+     }
 ```
 And replaced for the line:
 
