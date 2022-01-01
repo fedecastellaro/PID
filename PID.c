@@ -33,15 +33,15 @@ float PIDController_Update(PIDController *pid, float setpoint, float measurement
     pid->integrator = pid->integrator + 0.5f * pid->Ki * pid->T * (error + pid->prevError);
 
 	/* Anti-wind-up via integrator clamping */
-    if (pid->integrator > pid->limMaxInt) {
+    // if (pid->integrator > pid->limMaxInt) {
 
-        pid->integrator = pid->limMaxInt;
+    //     pid->integrator = pid->limMaxInt;
 
-    } else if (pid->integrator < pid->limMinInt) {
+    // } else if (pid->integrator < pid->limMinInt) {
 
-        pid->integrator = pid->limMinInt;
+    //     pid->integrator = pid->limMinInt;
 
-    }
+    // }
 
 
 	/*
@@ -67,6 +67,11 @@ float PIDController_Update(PIDController *pid, float setpoint, float measurement
         pid->out = pid->limMin;
 
     }
+
+	// I = out - (P + D); / [I] will not change unless out is being clamped
+
+	pid->integrator = pid->out - (proportional + pid->differentiator);
+
 
 	/* Store error and measurement for later use */
     pid->prevError       = error;

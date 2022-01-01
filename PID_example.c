@@ -16,7 +16,7 @@
 #define PID_LIM_MIN_INT -5.0f
 #define PID_LIM_MAX_INT  5.0f
 
-#define SAMPLE_TIME_S 0.001f
+#define SAMPLE_TIME_S 0.1
 
 /* Maximum run-time of simulation */
 #define SIMULATION_TIME_MAX 10.0f
